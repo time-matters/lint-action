@@ -1,3 +1,5 @@
+const core = require("@actions/core");
+
 const { run } = require("../utils/action");
 const commandExists = require("../utils/command-exists");
 const { initLintResult } = require("../utils/lint-result");
@@ -47,6 +49,7 @@ class ESLint {
 		const extensionsArg = extensions.map((ext) => `.${ext}`).join(",");
 		const fixArg = fix ? "--fix" : "";
 		const commandPrefix = prefix || getNpmBinCommand(dir);
+    core.info(`${commandPrefix} eslint --ext ${extensionsArg} ${fixArg} --no-color --format json ${args} "app/javascript/**/*" "spec/javascript/**/*"`);
 		return run(
 			`${commandPrefix} eslint --ext ${extensionsArg} ${fixArg} --no-color --format json ${args} "app/javascript/**/*" "spec/javascript/**/*"`,
 			{
