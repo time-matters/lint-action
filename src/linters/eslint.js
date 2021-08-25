@@ -48,6 +48,7 @@ class ESLint {
 	static lint(dir, extensions, args = "", fix = false, prefix = "") {
 		const extensionsArg = extensions.map((ext) => `.${ext}`).join(",");
 		const fixArg = fix ? "--fix" : "";
+    throw new Error(`foo?`);
 		const commandPrefix = prefix || getNpmBinCommand(dir);
     core.info(`${commandPrefix} eslint --ext ${extensionsArg} ${fixArg} --no-color --format json ${args} "app/javascript/**/*" "spec/javascript/**/*"`);
     core.warning('!!!!!!!!!!!!!!!!!!!!!!!!!');
