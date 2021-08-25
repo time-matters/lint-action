@@ -50,6 +50,7 @@ class ESLint {
 		const fixArg = fix ? "--fix" : "";
 		const commandPrefix = prefix || getNpmBinCommand(dir);
     core.info(`${commandPrefix} eslint --ext ${extensionsArg} ${fixArg} --no-color --format json ${args} "app/javascript/**/*" "spec/javascript/**/*"`);
+    core.warning('!!!!!!!!!!!!!!!!!!!!!!!!!');
 		return run(
 			`${commandPrefix} eslint --ext ${extensionsArg} ${fixArg} --no-color --format json ${args} "app/javascript/**/*" "spec/javascript/**/*"`,
 			{
